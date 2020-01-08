@@ -1,5 +1,6 @@
 
 class Sort:
+    
     def __init__(self, arr):
         self.arr = arr
         self.lengthOfArr = len(arr)
