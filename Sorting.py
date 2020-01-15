@@ -1,75 +1,82 @@
-import time
-import random
 
 class Sorting:
 
-    def __init__(self, arr):
-        self.arr = arr
-
-    def bubbleSort(self):
-        n = len(self.arr)
+    def bubbleSort(self,bSList):
+        n = len(bSList)
 
         # Traverse through list 
         for i in range(n):
             for j in range(0,n-i-1):
-                if self.arr[j] >self.arr[j+1]:
-                    self.arr[j],self.arr[j+1]= self.arr[j+1],self.arr[j]
+                if bSList[j] >bSList[j+1]:
+                    bSList[j],bSList[j+1]= bSList[j+1],bSList[j]
         
-        return self.arr
+        return bSList
 
 
-    def insertionSort(self):
-        for i in range(1,len(self.arr)):
-            key = self.arr[i]
+    def insertionSort(self,iSList):
+        for i in range(1,len(iSList)):
+            key = iSList[i]
 
             j = i-1
-            while j>=0 and key <self.arr[j]:
-                self.arr[j+1]=self.arr[j]
+            while j>=0 and key <iSList[j]:
+                iSList[j+1]=iSList[j]
                 j-=1
-            self.arr[j+1]=key
+            iSList[j+1]=key
         
-        return self.arr
+        return iSList
 
 
-    def selectionSort(self):
+    def selectionSort(self,sSList):
 
         # Trraverse through all elements of list 
-        for i in range(len(self.arr)):
+        for i in range(len(sSList)):
             min_idx = i
-            for j in range(i+1,len(self.arr)):
-                if self.arr[min_idx]>self.arr[j]:
+            for j in range(i+1,len(sSList)):
+                if sSList[min_idx]>sSList[j]:
                     min_idx = j
             
             # Swaping
-            self.arr[i],self.arr[min_idx] = self.arr[min_idx],self.arr[i]
+            sSList[i],sSList[min_idx] = sSList[min_idx],sSList[i]
         
-        return self.arr
+        return sSList
 
-    def output(self):
-        print(self.arr)
+    def heapSort(self,arr):
+
+        def heapify(arr, n, i):
+            largest = i
+            l = 2 * i + 1
+            r = 2 * i + 2
+            
+            if l < n and arr[i] < arr[l]:
+                largest = l 
+            if r < n and arr[largest] < arr[r]:
+                largest = r
+            if largest != i:
+                arr[i], arr[largest] = arr [largest], arr[i]
+                heapify(arr, n, largest)
+
+            return arr
+
+        def iheapSort(arr):
+            n = len(arr)
+            for i in range(n,-1,-1):
+                heapify(arr, n , i)
+            for i in range(n-1, 0 , -1):
+                arr[i], arr[0] = arr[0],arr[i]
+                heapify(arr, i, 0)
+            
+            return arr
+
+        return iheapSort(arr)
+ 
+    
 
 
 
-#------------------------------------------------------------------------------
-arr = [random.randint(1,10) for _ in range(10000)]
-test1 = Sorting(arr)
-print("-"*60)
-
-start_time = time.time()
-test1.bubbleSort()
-end_time = time.time()
-print("Total execution time Bubble Sort:    {}".format(end_time - start_time))
 
 
-start_time = time.time()
-test1.insertionSort()
-end_time = time.time()
-print("Total execution time Insertion Sort: {}".format(end_time - start_time))
 
 
-start_time = time.time()
-test1.selectionSort()
-end_time = time.time()
-print("Total execution time Selection Sort: {}".format(end_time - start_time))
 
-print("-"*60)
+
+
