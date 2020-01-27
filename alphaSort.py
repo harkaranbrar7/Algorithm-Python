@@ -13,5 +13,5 @@ class Solution:
 
 test1 = Solution(input("Enter a String: "))
 
-print("The sorted words are: ", test1.sort())
+print("The sorted words are:", test1.sort())
 
