@@ -1,7 +1,10 @@
 # Fibonacci Series using Dynamic Programming  
-
 def fibonacci(n):  
-    
+    if n == 0:
+        return 0
+    elif n <= 2:
+        return 1
+
     seq = [0] * n
     seq[0] = seq[1] = 1
 
@@ -10,7 +13,4 @@ def fibonacci(n):
     
     return seq[n-1]
 
-
-
-  
-print(fibonacci(9)) 
+print(fibonacci(10))
