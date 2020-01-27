@@ -17,7 +17,6 @@ N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].
 '''
 def solution(A):
-    # write your code in Python 3.6
     B = sorted(A)
     m = 1
     for x in B:
