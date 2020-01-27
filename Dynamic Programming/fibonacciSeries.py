@@ -9,10 +9,9 @@ def fibonacci(n):
 
     # List of zeros with length of given value n
     seq = [0] * n
-    # Fibonacci numbers are start with 1,1
     seq[0] = seq[1] = 1
 
-    # Algorithm Calculating Fibonacci Numbers 
+    # Algorithm Calculating Fibonacci Numbers
     for i in range(2,n):
         seq[i]= seq[i-1]+seq[i-2]
     
