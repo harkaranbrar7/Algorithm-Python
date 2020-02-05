@@ -1,14 +1,11 @@
 
 def solution(n, sourceTower, destinationTower, tempTower):
     global counter
-    if n == 0:
-        return "if you have 0 disks then there is a no tower of disks"
-    if n == 1:
-        counter+=1
-        print(counter,"Move disk 1 Source Tower",sourceTower,"Desination Tower",destinationTower)
+    if n <= 0:
+        return 
     else:
         solution(n-1,sourceTower,tempTower,destinationTower)
-        counter+=1
+        counter+=2
         print (counter,"Move disk",n,"Source Tower",sourceTower,"Desination Tower",destinationTower)
         solution(n-1,tempTower, destinationTower, sourceTower)
 
